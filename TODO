@@ -1,2 +1,8 @@
-- Create indicators.py file
+- in indicators.py file
     -- make functions for popular indicators.
+    -- make it be able to read from a config file
+
+- in historical_data.py file
+    -- grab historical data from an api
+    -- be able to select from which exchange you want to select the historical data
+    -- save the historical data based on the coin and date
