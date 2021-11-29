@@ -6,3 +6,6 @@
     -- grab historical data from an api
     -- be able to select from which exchange you want to select the historical data
     -- save the historical data based on the coin and date
+    
+- Create a simulation
+    -- create a simulation replay

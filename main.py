@@ -131,6 +131,7 @@ def main(config):
                     strategy_object = pickle.load(file)
             backtest_object = backtest(symbol, interval, year, month, strategy_object)
             print(backtest_object)
+            
 
             
         elif user_selection == "2":
