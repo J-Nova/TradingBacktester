@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Trading backtester</title>
+        <meta name="description" content="A trading backtesting program for cryptocurrencies">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+
+    <header>
+        <a href="{{ url_for('index') }}"><h1>TBP</h1></a>
+
+        <a href="/historical/data">Historical candle data</a>
+
+        <a href="/strategies">Strategies</a>
+
+    </header>
+
+    <body>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+</html> 

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    {% if data is defined %}
+        <div class="data-table">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Candle open price</th>
+                        <th>Candle high price</th>
+                        <th>Candle low price</th>
+                        <th>Candle close price</th>
+                        <th>Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr class="active-cell">
+                            <td>{{row.date}}</td>
+                            <td>{{row.time}}</td>
+                            <td>{{row.open}}</td>
+                            <td>{{row.high}}</td>
+                            <td>{{row.low}}</td>
+                            <td>{{row.close}}</td>
+                            <td>{{row.volume}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="data-filter">
+            <label>Data filter</label>
+            <form action="/historical/data" method="post" class="header-form">
+                <input type="hidden" id="historical_candle_data" name="historical_candle_data" value="candle-data">
+                <input id="data-range" type="month" name="data-range" value="2021-10">
+                <label for="timeframe">Choose a timeframe:</label>
+                <select id="timeframe" name="timeframe">
+                    {% for timeframe in timeframes %}
+                        <option value="{{timeframe}}">{{timeframe}}</option>
+                    {% endfor %}
+                </select>
+                <label for="symbol">Choose a currency:</label>
+                <select id="symbol" name="symbol">
+                    {% for symbol in symbols %}
+                        <option value="{{symbol}}">{{symbol}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="button" onclick="alert('Downloading data, may take up to a minute to finish.')">Fetch data</button>
+            </form>
+        </div>
+    {% endif %}
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript"  src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+        $('#myTable').dataTable();
+        });
+    </script>
+
+
+{% endblock %}

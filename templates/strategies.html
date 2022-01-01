@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="strategy-page-container">
+        <div class="strategy-page-header">
+            <h2>Strategies</h2>
+            <a href="/create/strategy">Create new strategy</a>
+        </div>
+        <div class="strategy-page-main-content">
+            {% if strategies|length > 0 %}
+                {% for strategy in strategies %}
+                    <div class="strategy-object">
+                        <p>{{ strategy.name }}</p>
+                        <p>{{ strategy.description }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                    <div class="no-strategies">
+                        <h3>You have no strategies.</h3>
+                    </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

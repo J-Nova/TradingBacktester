@@ -1,0 +1,134 @@
+
+/* 404.html styling */
+div.not-found-404 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+}
+/* End of 404.html styling */
+
+
+/* global styling */
+* {
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: rgb(138, 186, 221);
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(8, 18, 36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    grid-gap: 24px;
+}
+
+main {
+    padding: 24px;
+    background-color: rgb(14, 28, 49);
+    min-height: 100vh;
+}
+/* End of global styling */
+
+
+/* Historical_data.html styling */
+
+table, th, td {
+    border:1px solid white;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
+}
+
+div.data-filter form {
+    display: flex;
+    flex-direction: column;
+    max-width: min-content;
+    grid-gap: 12px;
+}
+
+#myTable_info {
+    border-style: solid;
+    max-width: fit-content;
+    padding: 6px;
+    margin-bottom: 12px;
+}
+
+#myTable_paginate {
+    border-style: dotted;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 24px;
+    padding: 6px;
+}
+
+#myTable_next {
+    cursor: pointer;
+    background-color: darkslateblue;
+}
+
+#myTable_previous {
+    cursor: pointer;
+    background-color: darkslateblue;
+}
+
+#myTable_paginate > span {
+    display: flex;
+    grid-gap: 12px;
+}
+
+#myTable_paginate > span > a.paginate_button.current {
+    background-color: brown;
+}
+
+#myTable_paginate > span > a.paginate_button {
+    cursor: pointer
+}
+
+/* End of historical_data.html styling */
+
+
+/* strategies.html styling */
+div.strategy-page-header {
+    display: flex;
+    grid-gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+
+div.strategy-page-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.strategy-page-main-content {
+    display: flex;
+    flex-direction: row;
+    grid-gap: 24px;
+    width: -webkit-fill-available;
+    justify-content: center;
+}
+
+/* End of strategies.html styling */
+
+
+/* strategy_creation.html styling */
+div.strategy-creation-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    grid-gap: 12px;
+}

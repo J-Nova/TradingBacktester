@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h3>Create your own strategy!</h3>
+    <div class="strategy-creation-form">
+        <form method="post" action="/create/strategy">
+            <label for="strategy-name">Strategy name:</label>
+            <input type="text" name="strategy-name" id="strategy-name" placeholder="Name of your strategy" required>
+
+            <label for="strategy-description">Strategy description:</label>
+            <input type="text" name="strategy-description" id="strategy-description" placerholder="Description of your strategy" value="">
+            
+            <label for="strategy-stop-loss">Stop loss (Put at 0 if not applicable):</label>
+            <input type="number" name="strategy-stop-loss" id="strategy-stop-loss" min="0" step="0.01" value="5">
+
+            <label for="strategy-take-profit">Stop loss (Put at 0 if not applicable):</label>
+            <input type="number" name="strategy-take-profit" id="strategy-take-profit" min="0.01" step="0.01" value="1">
+
+            <button type="submit" class="save-button">Save</button>
+        </form>
+    </div>
+{% endblock %}
