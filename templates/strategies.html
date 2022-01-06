@@ -10,7 +10,7 @@
             {% if strategies|length > 0 %}
                 {% for strategy in strategies %}
                     <div class="strategy-object">
-                        <p>{{ strategy.name }}</p>
+                        <a href="strategy/{{ strategy.name }}"><p>{{ strategy.name }}</p></a>
                         <p>{{ strategy.description }}</p>
                     </div>
                 {% endfor %}

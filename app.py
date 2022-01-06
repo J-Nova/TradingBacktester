@@ -54,9 +54,30 @@ def strategies():
     strategies = DB.grab_all_strategies()
     return render_template('strategies.html', strategies=strategies)
 
+
+@app.route("/strategy/<name>")
+def strategy_editor(name):
+    pass
+
 @app.route("/create/strategy", methods=["GET", "POST"])
 def strategy_creation():
     # Todo 1. create appropriate html file for creating a strategy.
     # Todo 2. create strategy creator function in seperate strategy.py file.
     # Todo 3. create proper strategy importing to edgedb database.
-    return render_template('strategy_creation.html')
+    if request.method == "POST":
+        strategy_name = request.form.get('strategy-name')
+        description = request.form.get('strategy-description')
+        stop_loss = float(request.form.get('strategy-stop-loss'))
+        take_profit = float(request.form.get('strategy-take-profit'))
+        success = DB.add_strategy(strategy_name, description, stop_loss, take_profit)
+        if not success:
+            return render_template('strategy_creation.html', error="A strategy with the same name already exists",)
+        elif success:
+            return render_template('strategies.html', strategies=DB.grab_all_strategies())
+
+    elif request.method == "GET":
+        return render_template('strategy_creation.html')
+    
+
+if __name__ == '__main__':
+    app.run(debug=True)

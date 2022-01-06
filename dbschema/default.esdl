@@ -1,13 +1,13 @@
 module default {
     type Rsi {
-        required link Strategy -> Rsi;
+        required link strat -> Strategy;
         required property overbought -> std::int64 {constraint min_value(0); constraint max_value(100);}
         required property oversold -> std::int64 {constraint min_value(0); constraint max_value(100);}
         required property period -> std::int64 {constraint min_value(1); constraint max_value(100);}
     };
 
     type Sma {
-        required link Strategy -> Sma;
+        required link strat -> Strategy;
         required property short_period -> std::int64 {constraint min_value(1); constraint max_value(100);}
         required property long_period -> std::int64 {constraint min_value(1); constraint max_value(100);}
     };
@@ -15,8 +15,8 @@ module default {
     type Strategy {
         required property name -> std::str {constraint min_len_value(1); constraint exclusive;}
         required property description -> std::str;
-        required property stop_loss -> std::int64 {constraint min_value(0);}
-        required property take_profit -> std::int64 {constraint min_value(0);}
+        required property stop_loss -> std::float64 {constraint min_value(0);}
+        required property take_profit -> std::float64 {constraint min_value(0);}
         required property creation_date -> std::str;
         required property update_date -> std::str;
     };
