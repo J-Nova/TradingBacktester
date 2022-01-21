@@ -8,23 +8,33 @@
     <div class="strategy-creation-form">
         <form method="post" action="/create/strategy">
             <div class="strategy-details">
-                <label for="strategy-name">Strategy name:</label>
-                <input type="text" name="strategy-name" id="strategy-name" placeholder="Name of your strategy" required>
-
-                <label for="strategy-description">Strategy description:</label>
-                <input type="text" name="strategy-description" id="strategy-description" placerholder="Description of your strategy" value="">
+                <div class="strategy-name">
+                    <label for="strategy-name">Strategy name:</label>
+                    <input type="text" name="strategy-name" id="strategy-name" placeholder="Name of your strategy" required>
+                </div>
                 
-                <label for="strategy-stop-loss">Stop loss (Put at 0 if not applicable):</label>
-                <input type="number" name="strategy-stop-loss" id="strategy-stop-loss" min="0" step="0.01" value="5">
+                <div class="strategy-description">
+                    <label for="strategy-description">Strategy description:</label>
+                    <input type="text" name="strategy-description" id="strategy-description" placerholder="Description of your strategy">
+                </div>
 
-                <label for="strategy-take-profit">Stop loss (Put at 0 if not applicable):</label>
-                <input type="number" name="strategy-take-profit" id="strategy-take-profit" min="0.01" step="0.01" value="1">
-
+                <div class="strategy-stop-loss">
+                    <label for="strategy-stop-loss">Stop loss (Put at 0 if not applicable):</label>
+                    <input type="number" name="strategy-stop-loss" id="strategy-stop-loss" min="0" step="0.01" value="5">
+                </div>
+                
+                <div class="strategy-take-profit">
+                    <label for="strategy-take-profit">Stop loss (Put at 0 if not applicable):</label>
+                    <input type="number" name="strategy-take-profit" id="strategy-take-profit" min="0.01" step="0.01" value="1">
+                </div>
+                
                 <button type="submit" class="create-button">create</button>
             </div>
             
             <div class="strategy-indicators">
-                
+                {% for indicator in available_indicators %}
+                    <div class="{{indicator['name']}}">{{indicator['description']}}</div>
+                {% endfor %}
             </div>
 
         </form>

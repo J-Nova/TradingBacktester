@@ -13,6 +13,7 @@ app.secret_key = "SECRET_PROJECT_123"
 
 ALLOWED_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "2h", "4h", "1d"]
 ALLOWED_COINS = ["BTCUSDT", "ETHUSDT", "ADAUSDT"]
+AVAILABLE_INDICATORS = [{"name": "SMA", "description": "Simple moving average"}, {"name": "RSI", "description": "Relative Strenght Index"}]
 
 @app.route("/", methods=['GET'])
 def index():
@@ -71,12 +72,12 @@ def strategy_creation():
         take_profit = float(request.form.get('strategy-take-profit'))
         success = DB.add_strategy(strategy_name, description, stop_loss, take_profit)
         if not success:
-            return render_template('strategy_creation.html', error="A strategy with the same name already exists",)
+            return render_template('strategy_creation.html', error="A strategy with the same name already exists", available_indicators=AVAILABLE_INDICATORS)
         elif success:
             return render_template('strategies.html', strategies=DB.grab_all_strategies())
 
     elif request.method == "GET":
-        return render_template('strategy_creation.html')
+        return render_template('strategy_creation.html', available_indicators=AVAILABLE_INDICATORS)
     
 
 if __name__ == '__main__':
